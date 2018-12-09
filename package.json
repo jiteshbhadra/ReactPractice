@@ -1,0 +1,59 @@
+{
+  "name": "reactpractice",
+  "version": "1.0.0",
+  "description": "React Practice",
+  "main": "index.js",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-native": "^4.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-react-display-name": "^2.0.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "css-loader": "^2.0.0",
+    "open": "^0.0.5",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-hot-middleware": "^2.24.3"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "start_old": "babel-node tools/srcServer.js",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiteshbhadra/ReactPractice.git"
+  },
+  "keywords": [
+    "React",
+    "Node",
+    "Redux"
+  ],
+  "author": "Jitesh Bhadra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiteshbhadra/ReactPractice/issues"
+  },
+  "homepage": "https://github.com/jiteshbhadra/ReactPractice#readme"
+}
