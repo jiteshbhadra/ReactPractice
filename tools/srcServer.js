@@ -1,34 +1,23 @@
-import express from 'express';
-import webpack from 'webpack';
-import path from 'path';
-// import config from '../webpack.config.dev';
-import open from 'open';
+var http = require('http');
 
+var finalhandler = require('finalhandler');
+var serveStatic = require('serve-static');
+var assetTypes= [".js",".css",".txt"];
 
-const port =3000;
-const app = express();
+var serve = serveStatic("./build");
 
+function isStaticResource(url){
+  return assetTypes.reduce(function(memo,assetType){
+    return memo || url.indexOf(assetType) !=-1;
+  },false);
+}
 
-
-app.use(express.static('src'))
-
-// const compiler = new webpack(config);
-
-// app.use(require('webpack-dev-middleware')(compiler, {
-//     noInfo: true,
-//     publicPath: config.output.publicPath
-// }));
-
-// app.use(require('webpack-hot-middleware')(compiler));
-
-app.get('*', function(req, res) {
-    res.sendFile(path.join( __dirname, '../src/index.html'));
-  });
-  
-app.listen(port, function(err) {
-    if (err) {
-      console.log(err);
-    } else {
-      open(`http://localhost:${port}`);
-    }
+var server = http.createServer(function(req,res){
+  if(!isStaticResource(req.url)){
+    req.url = "/index.html";
+  }
+  var done = finalhandler(req,res);
+  serve(req,res,done);
 });
+
+server.listen(3000);
