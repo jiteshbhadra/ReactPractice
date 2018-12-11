@@ -6,11 +6,11 @@ const initialState = {
 export default function (state= initialState,action) {  
      
     switch (action.type) {
-        case "CREATE_NEWSPAPER":
-            return Object.assign({},state,
-                {
-                    name: "test",publishYear:1980
-                });
+        case NewspaperActionTypes.ADD_NEWSPAPER:                   
+            return {
+                ...state,
+                newspaperList: [...state.newspaperList,action.newspaper]
+            }
             break;
         case NewspaperActionTypes.GET_NEWSPAPERS_LIST:            
             return {...state,newspaperList:action.newspaperList};    

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NewsListPage from './NewsListPage';
+import AddNewspaperPage from './AddNewspaperPage';
 import { getNewsPaperList } from 'actions';
+import { NewspaperService } from 'api'; 
 
 class NewsPaperData extends Component {
     constructor(props)
@@ -11,14 +13,30 @@ class NewsPaperData extends Component {
             newspapers: []
         };
     }
-    componentDidMount(){                      
-        const newsPapers = [{name:"A",publishYear:1900},{name:"B",publishYear:1900}];
-        this.props.getNewsPaperList(newsPapers);
+    componentDidUpdate(){ 
+        NewspaperService.getNewsPaperList()
+        .then((newspapers) =>{
+            this.props.getNewsPaperList(newspapers);
+            }
+        );
+    }
+    componentDidMount(){   
+        NewspaperService.getNewsPaperList()
+        .then((newspapers) =>{
+            this.props.getNewsPaperList(newspapers);
+            }
+        );
+        // const newsPapers = [{name:"A",publishYear:1900},{name:"B",publishYear:1900}];
+        
     }
     render(){
         const {newspaperList} =this.props;
         return (
-            <div><NewsListPage newspapers = {newspaperList}/></div>
+            <div>
+                <NewsListPage newspapers = {newspaperList}/>
+                <p>Add Newspaper</p>
+                <AddNewspaperPage />
+            </div>
         );
     }    
 }
