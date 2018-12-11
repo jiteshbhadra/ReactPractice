@@ -10,15 +10,12 @@ export default function (state= initialState,action) {
             return {
                 ...state,
                 newspaperList: [...state.newspaperList,action.newspaper]
-            }
-            break;
+            }            
         case NewspaperActionTypes.GET_NEWSPAPERS_LIST:            
-            return {...state,newspaperList:action.newspaperList};    
-            break;        
+            return {...state,newspaperList:action.newspaperList};               
     
         default:
-            return state;
-            break;
+            return state;            
     }
     
 }

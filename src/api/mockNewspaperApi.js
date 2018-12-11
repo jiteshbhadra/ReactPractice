@@ -1,4 +1,3 @@
-import { getNewsPaperList } from "../actions";
 
 const newspapers =[
     {name:"Times of India",publishYear:1950},
@@ -21,6 +20,19 @@ class NewspaperService{
             resolve(newspaper);
         }
         );
+    }
+    static getNewspaperByName(name){
+        return new Promise((resolve,reject)=>{
+            const newspaper = newspapers.filter(n=>n.name === name);
+            if(newspaper && newspaper.length >0){
+                resolve(newspaper[0]);
+            }
+            else
+            {
+                reject("Cannot found");
+            }
+
+        });
     }
 }
 export default NewspaperService;

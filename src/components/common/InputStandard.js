@@ -2,7 +2,7 @@ import React from 'react';
 
 const InputStandard = ({...props}) =>{
     
-    const {input,label,type,meta:{touched,error,invalid}, ...rest} = props; 
+    const {input,label,type,meta:{touched,error,invalid}} = props; 
      
     return(
         <div className={`form-group ${touched && invalid ? 'has-danger' : ''}`}>

@@ -9,8 +9,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ["@babel/env"] }
+        loader: "babel-loader"
       },
       {
         test: /\.css$/,
@@ -29,6 +28,6 @@ module.exports = {
     port: 3000,
     publicPath: "http://localhost:3000/dist/",
     hotOnly: true
-  },
+  },  
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };

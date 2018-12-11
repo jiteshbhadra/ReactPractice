@@ -10,7 +10,7 @@ class AddNewspaperPage extends Component{
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleSubmit({name:name,publishYear:publishYear}){
+    handleSubmit({name,publishYear}){
         NewspaperService.addNewspaper({name:name,publishYear:publishYear})
         .then((response)=>{            
             this.props.addNewspaper(response);
